@@ -15,18 +15,13 @@ public class Solution {
         
         if(arr[index] != arr.length - index)
         {
-            swap(arr, inv, arr.length - index);
+            inv[arr[arr.length - n]] = inv[n];
+            arr[inv[n]] = arr[arr.length - n];
+            arr[arr.length - n] = n;
             k -= 1;
         }
         
         return largestPermutation(k, arr, inv, index + 1);
-    }
-    
-    static void swap(int[] arr, int[] inv, int n)
-    {
-        inv[arr[arr.length - n]] = inv[n];
-        arr[inv[n]] = arr[arr.length - n];
-        arr[arr.length - n] = n;
     }
 
     public static void main(String[] args) {
