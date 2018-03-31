@@ -24,9 +24,8 @@ public class Solution {
     
     static void swap(int[] arr, int[] inv, int n)
     {
-        int swap = arr[arr.length - n];
         inv[arr[arr.length - n]] = inv[n];
-        arr[inv[n]] = swap;
+        arr[inv[n]] = arr[arr.length - n];
         arr[arr.length - n] = n;
     }
 
