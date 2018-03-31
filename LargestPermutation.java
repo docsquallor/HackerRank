@@ -15,9 +15,9 @@ public class Solution {
         
         if(arr[index] != arr.length - index)
         {
-            inv[arr[arr.length - n]] = inv[n];
-            arr[inv[n]] = arr[arr.length - n];
-            arr[arr.length - n] = n;
+            inv[arr[index]] = inv[arr.length - index];
+            arr[inv[arr.length - index]] = arr[index];
+            arr[index] = arr.length - index;
             k -= 1;
         }
         
