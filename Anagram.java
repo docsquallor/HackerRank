@@ -15,9 +15,9 @@ public class Solution {
         }
 
         Set<Integer> allChars = s.chars().boxed().collect(Collectors.toSet());
-        Map<Integer, Long> loMap = s.substring(0, s.length() / 2).chars().boxed().
+        Map<Integer, Long> loMap = s.chars().limit(s.length() /2).boxed().
             collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-        Map<Integer, Long> hiMap = s.substring(s.length() / 2, s.length()).chars().boxed().
+        Map<Integer, Long> hiMap = s.chars().skip(s.length() / 2).boxed().
             collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         return  allChars.stream().
                 map(c -> Optional.ofNullable(hiMap.get(c)).orElse(0L) - Optional.ofNullable(loMap.get(c)).orElse(0L)).
