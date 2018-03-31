@@ -7,19 +7,11 @@ import java.util.regex.*;
 
 public class Solution {
 
-    static int[] jimOrders(int[][] orders) {
-        Comparator<int[]> orderComp = new Comparator<int[]>()
-        {
-            public int compare(int[] o1, int[] o2)
-            {
-                return o1[1] + o1[2] - o2[1] - o2[2];
-            }
-        };
-        
+    static int[] jimOrders(int[][] orders) {        
         return IntStream.range(0, orders.length).
-                mapToObj(i -> new int[]{i + 1, orders[i][0], orders[i][1]}).
-                sorted(orderComp).
-                mapToInt(o -> o[0]).
+                boxed().
+                sorted((a, b) -> orders[a][0] + orders[a][1] - orders[b][0] - orders[b][1]).
+                mapToInt(i -> i + 1).
                 toArray();
     }
 
