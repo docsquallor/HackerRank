@@ -7,8 +7,8 @@ import java.util.regex.*;
 
 public class Solution {
 
-    static int stringConstruction(String s) {
-       return s.chars().boxed().collect(Collectors.toSet()).size();
+    static long stringConstruction(String s) {
+       return s.chars().distinct().count();
     }
 
     public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class Solution {
         int q = in.nextInt();
         for(int a0 = 0; a0 < q; a0++){
             String s = in.next();
-            int result = stringConstruction(s);
+            long result = stringConstruction(s);
             System.out.println(result);
         }
         in.close();
