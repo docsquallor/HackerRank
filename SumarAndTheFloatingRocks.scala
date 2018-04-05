@@ -21,7 +21,6 @@ object Solution {
         br.readLine()
         Stream.continually(br.readLine()).takeWhile(_ != null).foreach{ l =>
             val s = l.split(" ")
-            var count = 0
             val x1 = Integer.parseInt(s(0))
             val y1 = Integer.parseInt(s(1))
             val x2 = Integer.parseInt(s(2))
