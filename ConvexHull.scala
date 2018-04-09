@@ -35,7 +35,7 @@ object Solution {
             if(o == 0) dist(p, p1) - dist(p, p2) > 0 else o > 0
         }
         
-        points = points.filter(_ != p).sortWith((p1, p2) => comp(p1, p2))
+        points = points.filter(_ != p).sortWith(comp)
         points = filter(points, p)
         var convexHull = hull(points.take(2).reverse, points.drop(2))
         println((convexHull.tail :+ convexHull.head).
